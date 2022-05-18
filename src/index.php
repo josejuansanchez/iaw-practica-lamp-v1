@@ -31,12 +31,12 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 	</tr>
 
 	<?php
-	while($res = mysqli_fetch_array($result)) {
+	while($row = mysqli_fetch_array($result)) {
 		echo "<tr>\n";
-		echo "<td>".$res['name']."</td>\n";
-		echo "<td>".$res['age']."</td>\n";
-		echo "<td>".$res['email']."</td>\n";
-		echo "<td><a href=\"edit.php?id=$res[id]\">Edit</a> | <a href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>\n";
+		echo "<td>".$row['name']."</td>\n";
+		echo "<td>".$row['age']."</td>\n";
+		echo "<td>".$row['email']."</td>\n";
+		echo "<td><a href=\"edit.php?id=$row[id]\">Edit</a> | <a href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>\n";
 		echo "</tr>\n";
 	}
 
