@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:20.04
 
 LABEL title="apache-lamp" \
   author="José Juan Sánchez"
