@@ -14,16 +14,20 @@ services:
     ports:
       - 3306:3306
     environment: 
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=lamp_db
-      - MYSQL_USER=lamp_user
-      - MYSQL_PASSWORD=lamp_password
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     volumes:
       - mysql_data:/var/lib/mysql
       - ./db:/docker-entrypoint-initdb.d       
 
   phpmyadmin:
+<<<<<<< HEAD
     image: phpmyadmin
+=======
+    image: phpmyadmin:5
+>>>>>>> 6965da719c69013ba5e1331dbb1519ebcd7abe02
     ports:
       - 8080:80
     environment:

@@ -37,8 +37,11 @@ $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 	while($row = mysqli_fetch_array($result)) {
 		echo "<tr>\n";
 		echo "<td>".$row['name']."</td>\n";
+<<<<<<< HEAD
 		echo "<td>".$row['surname1']."</td>\n";
 		echo "<td>".$row['surname2']."</td>\n";
+=======
+>>>>>>> 6965da719c69013ba5e1331dbb1519ebcd7abe02
 		echo "<td>".$row['age']."</td>\n";
 		echo "<td>".$row['email']."</td>\n";
 		echo "<td><a href=\"edit.php?id=$row[id]\">Edit</a> | <a href=\"delete.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>\n";
