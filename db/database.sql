@@ -3,9 +3,10 @@ CREATE DATABASE lamp_db CHARSET utf8mb4;
 USE lamp_db;
 
 CREATE TABLE users (
-  id int(11) NOT NULL auto_increment,
-  name varchar(100) NOT NULL,
-  age int(3) NOT NULL,
-  email varchar(100) NOT NULL,
-  PRIMARY KEY (id)
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  surname1 VARCHAR(100) NOT NULL,
+  surname2 VARCHAR(100) NOT NULL,  
+  name VARCHAR(100) NOT NULL,
+  age INT UNSIGNED NOT NULL,
+  email VARCHAR(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -2,16 +2,23 @@
 // including the database connection file
 include_once("config.php");
 
-if(isset($_POST['update'])) {
+if(isset($_POST['id']) && isset($_POST['name']) && isset($_POST['surname1']) && isset($_POST['surname2']) && isset($_POST['age']) && isset($_POST['email'])) {
+	
 	$id = mysqli_real_escape_string($mysqli, $_POST['id']);
 	$name = mysqli_real_escape_string($mysqli, $_POST['name']);
+	$surname1 = mysqli_real_escape_string($mysqli, $_POST['surname1']);
+	$surname2 = mysqli_real_escape_string($mysqli, $_POST['surname2']);
 	$age = mysqli_real_escape_string($mysqli, $_POST['age']);
 	$email = mysqli_real_escape_string($mysqli, $_POST['email']);
 
 	// checking empty fields
-	if(empty($name) || empty($age) || empty($email)) {
+	if(empty($name) || empty($surname1) || empty($age) || empty($email)) {
 		if(empty($name)) {
 			echo "<font color='red'>Name field is empty.</font><br/>";
+		}
+
+		if(empty($surname1)) {
+			echo "<font color='red'>Surname1 field is empty.</font><br/>";
 		}
 
 		if(empty($age)) {
@@ -23,8 +30,8 @@ if(isset($_POST['update'])) {
 		}
 	} else {
 		// updating the table
-		$stmt = mysqli_prepare($mysqli, "UPDATE users SET name=?,age=?,email=? WHERE id=?");
-		mysqli_stmt_bind_param($stmt, "sisi", $name, $age, $email, $id);
+		$stmt = mysqli_prepare($mysqli, "UPDATE users SET name=?,surname1=?,surname2=?,age=?,email=? WHERE id=?");
+		mysqli_stmt_bind_param($stmt, "sssisi", $name, $surname1, $surname2, $age, $email, $id);
 		mysqli_stmt_execute($stmt);
 		mysqli_stmt_free_result($stmt);
 		mysqli_stmt_close($stmt);
@@ -39,11 +46,13 @@ if(isset($_POST['update'])) {
 // getting id from url
 $id = $_GET['id'];
 
+$id = mysqli_real_escape_string($mysqli, $id);
+
 // selecting data associated with this particular id
-$stmt = mysqli_prepare($mysqli, "SELECT name, age, email FROM users WHERE id=?");
+$stmt = mysqli_prepare($mysqli, "SELECT name, surname1, surname2, age, email FROM users WHERE id=?");
 mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
-mysqli_stmt_bind_result($stmt, $name, $age, $email);
+mysqli_stmt_bind_result($stmt, $name, $surname1, $surname2, $age, $email);
 mysqli_stmt_fetch($stmt);
 mysqli_stmt_free_result($stmt);
 mysqli_stmt_close($stmt);
@@ -68,7 +77,7 @@ mysqli_close($mysqli);
 	<a href="index.php" class="btn btn-primary">Home</a>
 	<br/><br/>
 
-	<form name="form1" method="post" action="edit.php">
+	<form action="edit.php" method="post">
 
 		<div class="form-group">
 			<label for="name">Name</label>
@@ -76,8 +85,18 @@ mysqli_close($mysqli);
 		</div>
 
 		<div class="form-group">
+			<label for="name">Surname1</label>
+			<input type="text" class="form-control" name="surname1" value="<?php echo $surname1;?>">
+		</div>
+
+		<div class="form-group">
+			<label for="name">Surname2</label>
+			<input type="text" class="form-control" name="surname2" value="<?php echo $surname2;?>">
+		</div>
+
+		<div class="form-group">
 			<label for="name">Age</label>
-			<input type="text" class="form-control" name="age" value="<?php echo $age;?>">
+			<input type="number" class="form-control" name="age" value="<?php echo $age;?>">
 		</div>
 
 		<div class="form-group">
@@ -86,8 +105,8 @@ mysqli_close($mysqli);
 		</div>
 
 		<div class="form-group">
-			<input type="hidden" name="id" value=<?php echo $_GET['id'];?>>
-			<input type="submit" name="update" value="Update" class="form-control" >
+			<input type="hidden" name="id" value=<?php echo $id;?>>
+			<input type="submit" value="Update" class="form-control" >
 		</div>
 
 	</form>
