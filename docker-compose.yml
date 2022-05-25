@@ -23,11 +23,7 @@ services:
       - ./db:/docker-entrypoint-initdb.d       
 
   phpmyadmin:
-<<<<<<< HEAD
-    image: phpmyadmin
-=======
     image: phpmyadmin:5
->>>>>>> 6965da719c69013ba5e1331dbb1519ebcd7abe02
     ports:
       - 8080:80
     environment:
