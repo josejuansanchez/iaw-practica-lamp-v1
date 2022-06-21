@@ -2,14 +2,14 @@
 
 >IES Celia Viñas (Almería) - Curso 2017/2018  
 >Módulos: Bases de Datos (BD) / Implantación de Aplicaciones Web (IAW)  
->Ciclos: CFGS Desarrollo de Aplicaciones Web (DAW) / CFGS Administración de Sistemas Informáticos en Red (ASIR)  
+>Ciclos: CFGS DAW / CFGS ASIR  
 
-El contenido de este repositorio ha sido utilizado por el alumnado del IES Celia Viñas (Almería) en los módulos de:
+El contenido de este repositorio ha sido utilizado por el alumnado del [IES Celia Viñas (Almería)][12] en los módulos de:
 
-- Bases de Datos del Ciclo Formativo de Grado Superior Desarrollo de Aplicaciones Web.
-- Implantación de Aplicaciones Web del Ciclo Formativo de Grado Superior Administración de Sistemas Informáticos en Red.
+- **Bases de Datos** del Ciclo Formativo de Grado Superior Desarrollo de Aplicaciones Web.
+- **Implantación de Aplicaciones Web** del Ciclo Formativo de Grado Superior Administración de Sistemas Informáticos en Red.
 
-Esta práctica consiste en la creación de un sistema CRUD **muy básico** que permite añadir, editar, borrar y ver registros de una base de datos, haciendo uso de [PHP][1] y [MySQL][2].
+Esta práctica consiste en la creación de un **sistema CRUD muy básico** que permite añadir, editar, borrar y ver registros de una base de datos, haciendo uso de [PHP][1] y [MySQL][2].
 
 Vamos a trabajar con diferentes versiones de la misma aplicación para ir estudiando su evolución. Los repositorios de las aplicaciones que vamos a utilizar están disponibles en GitHub:
 
@@ -40,3 +40,4 @@ El código utilizado en esta práctica está basado en el repositorio [crud-php-
 [9]: https://github.com/josejuansanchez/iaw-practica-lamp-docker
 [10]: https://github.com/josejuansanchez/iaw-practica-lamp-login-docker/
 [11]: https://github.com/josejuansanchez/iaw-practica-lamp-mvc-docker
+[12]: https://iescelia.org/web/
