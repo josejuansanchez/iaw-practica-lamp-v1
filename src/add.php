@@ -2,17 +2,21 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" crossorigin="anonymous">	
 	<title>Add Data</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"  crossorigin="anonymous">
 </head>
 
 <body>
-<div class = "container">
-	<div class="jumbotron">
-		<h1 class="display-4">Simple LAMP web app</h1>
-		<p class="lead">Demo app</p>
-	</div>
+<div class="col-lg-8 mx-auto py-md-5">
+	<header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+		<a href="/" class="text-dark text-decoration-none">
+			<img src="images/code-solid.svg" width="40" height="32" class="me-2">
+			<span class="fs-4">Company name</span>
+		</a>
+	</header>
 
+	<main>
 
 <?php
 // including the database connection file
@@ -71,6 +75,10 @@ if(empty($name) || empty($age) || empty($email) || empty($surname1)) {
 mysqli_close($mysqli);
 
 ?>
+	</main>
+	<footer class="pt-5 my-5 text-muted border-top">
+    Created by the IES Celia team &copy; 2022
+  	</footer>
 </div>
 </body>
 </html>

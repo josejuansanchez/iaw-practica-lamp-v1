@@ -63,53 +63,65 @@ mysqli_close($mysqli);
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" crossorigin="anonymous">	
 	<title>Edit Data</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"  crossorigin="anonymous">
 </head>
 
 <body>
-<div class = "container">
-	<div class="jumbotron">
-		<h1 class="display-4">Simple LAMP web app</h1>
-		<p class="lead">Demo app</p>
-	</div>
-
-	<a href="index.php" class="btn btn-primary">Home</a>
-	<br/><br/>
+<div class="col-lg-8 mx-auto py-md-5">
+	<header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+		<a href="/" class="text-dark text-decoration-none">
+			<img src="images/code-solid.svg" width="40" height="32" class="me-2">
+			<span class="fs-4">Company name</span>
+		</a>
+	</header>
+	
+	<main>				
+	<ul class="nav nav-tabs">
+		<li class="nav-item"><a href="index.php" class="nav-link" >Home</a></li>
+		<li class="nav-item"><a href="add.html" class="nav-link">Add</a></li>
+		<li class="nav-item"><a href="" class="nav-link active">Edit</a></li>		
+	</ul>
+	<br/>
 
 	<form action="edit.php" method="post">
 
-		<div class="form-group">
+		<div class="mb-3">
 			<label for="name">Name</label>
-			<input type="text" class="form-control" name="name" value="<?php echo $name;?>">
+			<input type="text" class="form-control" name="name" value="<?php echo $name;?>" required>
 		</div>
 
-		<div class="form-group">
+		<div class="mb-3">
 			<label for="name">Surname1</label>
-			<input type="text" class="form-control" name="surname1" value="<?php echo $surname1;?>">
+			<input type="text" class="form-control" name="surname1" value="<?php echo $surname1;?>" required>
 		</div>
 
-		<div class="form-group">
+		<div class="mb-3">
 			<label for="name">Surname2</label>
 			<input type="text" class="form-control" name="surname2" value="<?php echo $surname2;?>">
 		</div>
 
-		<div class="form-group">
+		<div class="mb-3">
 			<label for="name">Age</label>
-			<input type="number" class="form-control" name="age" value="<?php echo $age;?>">
+			<input type="number" class="form-control" name="age" value="<?php echo $age;?>" required>
 		</div>
 
-		<div class="form-group">
+		<div class="mb-3">
 			<label for="name">Email</label>
-			<input type="text" class="form-control" name="email" value="<?php echo $email;?>">
+			<input type="email" class="form-control" name="email" value="<?php echo $email;?>" required>
 		</div>
 
-		<div class="form-group">
+		<div class="mb-3">
 			<input type="hidden" name="id" value=<?php echo $id;?>>
-			<input type="submit" value="Update" class="form-control" >
+			<input type="submit" value="Update" class="form-control  btn btn-primary">
 		</div>
-
 	</form>
+
+	</main>	
+	<footer class="pt-5 my-5 text-muted border-top">
+	Created by the IES Celia team &copy; 2022
+  	</footer>
 </div>
 </body>
 </html>
