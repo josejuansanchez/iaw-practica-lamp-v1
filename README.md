@@ -1,4 +1,4 @@
-# iaw-practica-lamp-docker
+# iaw-practica-lamp-v1
 
 >IES Celia Viñas (Almería) - Curso 2017/2018  
 >Módulos: Bases de Datos (BD) / Implantación de Aplicaciones Web (IAW)  
@@ -37,7 +37,7 @@ El código utilizado en esta práctica está basado en el repositorio [crud-php-
 [6]: https://getbootstrap.com/docs/5.2/getting-started/introduction/
 [7]: https://github.com/chapagain/crud-php-complete
 [8]: https://github.com/chapagain
-[9]: https://github.com/josejuansanchez/iaw-practica-lamp-docker
-[10]: https://github.com/josejuansanchez/iaw-practica-lamp-login-docker/
-[11]: https://github.com/josejuansanchez/iaw-practica-lamp-mvc-docker
+[9]: https://github.com/josejuansanchez/iaw-practica-lamp-v1
+[10]: https://github.com/josejuansanchez/iaw-practica-lamp-v2
+[11]: https://github.com/josejuansanchez/iaw-practica-lamp-v3
 [12]: https://iescelia.org/web/
