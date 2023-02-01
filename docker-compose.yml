@@ -3,6 +3,11 @@ version: '3'
 services: 
   apache:
     build: ./apache
+    environment: 
+      - DB_HOST=mysql
+      - DB_NAME=${MYSQL_DATABASE}
+      - DB_USER=${MYSQL_USER}
+      - DB_PASSWORD=${MYSQL_PASSWORD}
     ports: 
       - 80:80
     volumes:
