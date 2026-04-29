@@ -1,8 +1,8 @@
 <?php
-// including the database connection file
+// Including the database connection file
 include_once("config.php");
 
-// fetching data in descending order (lastest entry first)
+// Fetching data in descending order (lastest entry first)
 $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
 
 ?>

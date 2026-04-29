@@ -1,9 +1,10 @@
 <?php
-// including the database connection file
+// Including the database connection file
 include_once("config.php");
 
 if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['surname1']) && isset($_POST['surname2']) && isset($_POST['age']) && isset($_POST['email'])) {
 
+	// Escaping special characters in strings
 	$id = mysqli_real_escape_string($mysqli, $_POST['id']);
 	$name = mysqli_real_escape_string($mysqli, $_POST['name']);
 	$surname1 = mysqli_real_escape_string($mysqli, $_POST['surname1']);
@@ -11,7 +12,15 @@ if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['surname1']) &&
 	$age = mysqli_real_escape_string($mysqli, $_POST['age']);
 	$email = mysqli_real_escape_string($mysqli, $_POST['email']);
 
-	// checking empty fields
+	// Avoid XSS attacks
+	$id = htmlspecialchars($id);
+	$name = htmlspecialchars($name);
+	$surname1 = htmlspecialchars($surname1);
+	$surname2 = htmlspecialchars($surname2);
+	$age = htmlspecialchars($age);
+	$email = htmlspecialchars($email);
+
+	// Checking empty fields
 	if (empty($name) || empty($surname1) || empty($age) || empty($email)) {
 		if (empty($name)) {
 			echo "<font color='red'>Name field is empty.</font><br/>";
@@ -29,26 +38,28 @@ if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['surname1']) &&
 			echo "<font color='red'>Email field is empty.</font><br/>";
 		}
 	} else {
-		// updating the table
+		// Updating the table
 		$stmt = mysqli_prepare($mysqli, "UPDATE users SET name=?,surname1=?,surname2=?,age=?,email=? WHERE id=?");
 		mysqli_stmt_bind_param($stmt, "sssisi", $name, $surname1, $surname2, $age, $email, $id);
 		mysqli_stmt_execute($stmt);
 		mysqli_stmt_free_result($stmt);
 		mysqli_stmt_close($stmt);
 
-		// redirectig to the display page. In our case, it is index.php
+		// Redirectig to the display page. In our case, it is index.php
 		header("Location: index.php");
 	}
 }
 ?>
 
 <?php
-// getting id from url
+// Getting id from url
 $id = $_GET['id'];
 
+// Escaping special characters in strings
 $id = mysqli_real_escape_string($mysqli, $id);
+$id = htmlspecialchars($id);
 
-// selecting data associated with this particular id
+// Selecting data associated with this particular id
 $stmt = mysqli_prepare($mysqli, "SELECT name, surname1, surname2, age, email FROM users WHERE id=?");
 mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
@@ -91,31 +102,31 @@ mysqli_close($mysqli);
 
 				<div class="mb-3">
 					<label for="name">Name</label>
-					<input type="text" class="form-control" name="name" value="<?php echo $name; ?>" required>
+					<input type="text" class="form-control" name="name" value="<?= $name; ?>" required>
 				</div>
 
 				<div class="mb-3">
 					<label for="name">Surname1</label>
-					<input type="text" class="form-control" name="surname1" value="<?php echo $surname1; ?>" required>
+					<input type="text" class="form-control" name="surname1" value="<?= $surname1; ?>" required>
 				</div>
 
 				<div class="mb-3">
 					<label for="name">Surname2</label>
-					<input type="text" class="form-control" name="surname2" value="<?php echo $surname2; ?>">
+					<input type="text" class="form-control" name="surname2" value="<?= $surname2; ?>">
 				</div>
 
 				<div class="mb-3">
 					<label for="name">Age</label>
-					<input type="number" class="form-control" name="age" value="<?php echo $age; ?>" required>
+					<input type="number" class="form-control" name="age" value="<?= $age; ?>" required>
 				</div>
 
 				<div class="mb-3">
 					<label for="name">Email</label>
-					<input type="email" class="form-control" name="email" value="<?php echo $email; ?>" required>
+					<input type="email" class="form-control" name="email" value="<?= $email; ?>" required>
 				</div>
 
 				<div class="mb-3">
-					<input type="hidden" name="id" value=<?php echo $id; ?>>
+					<input type="hidden" name="id" value=<?= $id; ?>>
 					<input type="submit" value="Update" class="form-control  btn btn-primary">
 				</div>
 			</form>
